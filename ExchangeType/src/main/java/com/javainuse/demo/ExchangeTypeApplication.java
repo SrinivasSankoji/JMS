@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.javainuse.demo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -8,10 +8,10 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
 
 @SpringBootApplication
-public class BcryptDemoApplication {
+public class ExchangeTypeApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(BcryptDemoApplication.class, args);
+		SpringApplication.run(ExchangeTypeApplication.class, args);
 	}
 	
 	@Bean
@@ -25,5 +25,4 @@ public class BcryptDemoApplication {
 	    source.registerCorsConfiguration("/v2/api-docs", config);
 	    return new CorsFilter(source);
 	}
-
 }

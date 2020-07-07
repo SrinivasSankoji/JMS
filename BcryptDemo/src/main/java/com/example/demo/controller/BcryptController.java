@@ -28,7 +28,7 @@ public class BcryptController
 	}
 	
 	private String hashPassword(String plainTextPassword) {
-        return BCrypt.hashpw(plainTextPassword, BCrypt.gensalt());
+        return BCrypt.hashpw(plainTextPassword, BCrypt.gensalt(12));
     }
 	
 	@GetMapping("/getJenkins")
