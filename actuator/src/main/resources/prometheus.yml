@@ -1,0 +1,31 @@
+global:
+  scrape_interval:        5s # By default, scrape targets every 15 seconds.Default is 1 Minute
+  evaluation_interval :   5s # Evaluate rules every 15 Seconds,Default is every 1 Minute
+  external_labels:
+    monitor: 'codelab-monitor'
+
+scrape_configs:
+  - job_name: 'prometheus'
+    scrape_interval: 5s
+    static_configs:
+      - targets: ['0.0.0.0:9090'] # Here it's Prometheus itself.
+
+  - job_name: 'actuator'
+    metrics_path: '/monitoring/actuator/prometheus'
+    scrape_interval: 5s
+    static_configs:
+    - targets: ['192.168.2.3:9876']
+    
+  - job_name: 'swagger'
+    metrics_path: '/swaggermonitoring/actuator/prometheus'
+    scrape_interval: 5s
+    static_configs:
+    - targets: ['192.168.2.3:1015']
+    
+    
+  - job_name: 'Exchange Types'
+    metrics_path: '/exchangetypemonitoring/actuator/prometheus'
+    scrape_interval: 5s
+    static_configs:
+    - targets: ['192.168.2.3:1014']
+    
